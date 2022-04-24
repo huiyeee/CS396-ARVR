@@ -26,7 +26,7 @@ let map = new InteractiveMap({
 	mapCenter: NU_CENTER,
 
 	// Ranges
-	ranges: [500, 200, 90, 1], // must be in reverse order
+	ranges: [200, 50, 20, 1], // must be in reverse order
 
 	initializeMap() {
 		// A good place to load landmarks
