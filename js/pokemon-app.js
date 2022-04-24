@@ -26,7 +26,7 @@ let map = new InteractiveMap({
 	mapCenter: NU_CENTER,
 
 	// Ranges
-	ranges: [500, 200, 90, 1], // must be in reverse order
+	ranges: [200, 50, 20, 1], // must be in reverse order
 
 	initializeMap() {
 		// A good place to load landmarks
@@ -76,6 +76,7 @@ let map = new InteractiveMap({
 
 		// Give it a random number of points
 		landmark.points = Math.floor(Math.random()*10 + 1)
+		landmark.captured = false
 		return landmark
 	}, 
 
@@ -87,7 +88,8 @@ let map = new InteractiveMap({
 		if (newLevel == 2) {
 
 			// Add points to my gamestate
-			gameState.points += landmark.points
+			// gameState.points += landmark.points
+			gameState.points += 1
 
 			
 
@@ -96,6 +98,8 @@ let map = new InteractiveMap({
 				gameState.captured.push(landmark.name)
 				// Add a message
 				gameState.messages.push(`You captured ${landmark.name} for ${landmark.points} points`)
+
+				landmark.captured = true
 			}
 
 		}
@@ -122,6 +126,11 @@ let map = new InteractiveMap({
 		
 		// Pick out a hue, we can reuse it for foreground and background
 		let hue = landmark.points*.1
+		iconColor = [hue, 1, .5]
+
+		if (landmark.captured) {
+			iconColor = [0, 0, 0]
+		}
 		return {
 			label: landmark.name + "\n" + landmark.distanceToPlayer +"m",
 			fontSize: 8,
@@ -130,7 +139,7 @@ let map = new InteractiveMap({
 			icon: "person_pin_circle",
 
 			// Colors are in HSL (hue, saturation, lightness)
-			iconColor: [hue, 1, .5],
+			iconColor: iconColor,
 			bgColor: [hue, 1, .2],
 			noBG: false // skip the background
 		}
@@ -166,7 +175,7 @@ window.onload = (event) => {
 						<span style="color:white">
 							(TODO, add your own gamestate)
 							{{gameState}}
-						<span>
+						</span>
 						
 					</div>
 
