@@ -88,7 +88,8 @@ let map = new InteractiveMap({
 		if (newLevel == 2) {
 
 			// Add points to my gamestate
-			gameState.points += landmark.points
+			// gameState.points += landmark.points
+			gameState.points += 1
 
 			
 
