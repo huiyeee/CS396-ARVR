@@ -95,7 +95,7 @@ let map = new InteractiveMap({
 			if (!gameState.captured.includes(landmark.name)) {
 				gameState.captured.push(landmark.name)
 				// Add a message
-				gameState.messages.push(`You captured ${landmark.name} for ${landmark.points} points`)
+				gameState.messages[0] = `You have found an egg at ${landmark.name} for ${landmark.points} points`
 			}
 
 		}
@@ -162,11 +162,24 @@ window.onload = (event) => {
 				<div class="panel">
 					<user-widget :user="user" />
 				</div>
+				<div class="timer">
+					<p id = "timer"></p>
+
+				</div>
+					
 					<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
-						<span style="color:white">
-							(TODO, add your own gamestate)
-							{{gameState}}
-						<span>
+						
+						<div style="color:white">Press timer to begin</div>
+						<button style="color:black" v-on:click="countDownTimer()">{{ countDown }} seconds left</button>
+						<div style="color:white">
+							points: {{gameState.points}}
+						</div>
+						<div style="color:white">
+							captured: {{gameState.captured}}
+						</div>
+						<div style="color:white">
+							Current find: {{gameState.messages}}
+						</div>
 						
 					</div>
 
@@ -178,15 +191,38 @@ window.onload = (event) => {
 				</div>	
 		<footer></footer>
 		</div>`,
-
+		
 		data() {
 			return {
 				user: user,
 				map: map,
-				gameState: gameState
+				gameState: gameState,
+				countDown: 1000,
+				countDownTimer() {
+					if (this.countDown > 0) {
+						setTimeout(() => {
+							this.countDown -= 1
+							this.countDownTimer();
+						}, 1000)
+					}
+				}
 			}
 		},
+		watch: {
 
+            timerCount: {
+                handler(value) {
+
+                    if (value > 0) {
+                        setTimeout(() => {
+                            this.timerCount--;
+                        }, 1000);
+                    }
+
+                },
+                immediate: true // This ensures the watcher is triggered upon creation
+            }
+		},
 		// Get all of the intarsia components, plus various others
 		components: Object.assign({
 			"user-widget": userWidget,
