@@ -149,20 +149,23 @@ window.onload = (event) => {
 		template: `
 		<div id="app">
 		<header></header>
-			<div id="main-columns">
+		<div class="logo">
+			<h2>EGG HUNTERS</h2>
+		</div>
+				<div id="main-columns">
 
-				<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
-					(TODO, add your own gamestate)
-					{{gameState}}
+					<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
+						(TODO, add your own gamestate)
+						{{gameState}}
+						
+					</div>
+
+					<div class="main-column" style="overflow:hidden;width:${MAP_SIZE}px;height:${MAP_SIZE}px">
+						<location-widget :map="map" />
 					
-				</div>
+					</div>
 
-				<div class="main-column" style="overflow:hidden;width:${MAP_SIZE}px;height:${MAP_SIZE}px">
-					<location-widget :map="map" />
-				
-				</div>
-
-			</div>	
+				</div>	
 		<footer></footer>
 		</div>`,
 

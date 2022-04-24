@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
 
 :root {
 	--main-bg-color: hsl(35, 60%, 95%);
@@ -18,7 +20,8 @@ img {
 /*https://www.tilingtextures.com/light-cork-board/*/
 /*https://www.toptal.com/designers/subtlepatterns/retina-wood/*/
 html,body {
-	background-image: url("img/retina_wood.png");
+	background: linear-gradient(black, #7600bf);
+	perspective: 700px;
 	background-repeat: repeat;
 	font-family: basic, sans-serif;
 	width: 100%;
@@ -252,3 +255,18 @@ header {
 	margin:  2px;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
 }
+
+  
+  h2 {
+	font-family: 'Mr Dafoe';
+	margin: 0;
+	font-size: 5.5em;
+	margin-top: -0.6em;
+	color: white;
+	text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1;
+	transform: rotate(-7deg);
+  }
+
+  .logo {
+	 margin: 50px 10%;
+  }
