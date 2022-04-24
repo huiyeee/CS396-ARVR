@@ -31,23 +31,25 @@ let map = new InteractiveMap({
 
 	initializeMap() {
 		// A good place to load landmarks
-		this.loadLandmarks("landmarks-shop-evanston", (landmark) => {
-			// Keep this landmark?
+		// this.loadLandmarks("landmarks-all-nu", (landmark) => {
+		// 	// Keep this landmark?
 
-			// Keep all landmarks in the set
-			return true
+		// 	// Keep all landmarks in the set
+		// 	return true
 
-			// Only keep this landmark if its a store or amenity, e.g.
-			// return landmark.properties.amenity || landmark.properties.store
-		})
+		// 	// Only keep this landmark if its a store or amenity, e.g.
+		// 	// return landmark.properties.amenity || landmark.properties.store
+		// })
 
 		// Create random landmarks
 		// You can also use this to create trails or clusters for the user to find
-		for (var i = 0; i < 10; i++) {
 
+		// Automatically generated 15 random landmarks in NU
+		count = 10
+		for (var i = 0; i < count; i++) {
 			// make a polar offset (radius, theta) 
 			// from the map's center (units are *approximately* meters)
-			let position = clonePolarOffset(NU_CENTER, 400*Math.random() + 300, 20*Math.random())
+			let position = clonePolarOffset(NU_CENTER, 200*Math.random() + 100, 60*Math.random())
 			this.createLandmark({
 				pos: position,
 				name: words.getRandomWord(),

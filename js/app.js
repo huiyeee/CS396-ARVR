@@ -84,7 +84,6 @@ window.onload = (event) => {
 		<div id="app">
 		<header></header>
 			<div id="main-columns">
-
 				<div class="main-column" style="width:290px">
 
 					<div class="panel">
