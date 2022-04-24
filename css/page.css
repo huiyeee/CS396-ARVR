@@ -272,6 +272,15 @@ header {
   }
 
   .info {
+	  width: 500px;
 	  display: flex;
 	  flex-direction: row;
+	  align-items: center;
+  }
+
+  .info-left {
+	  display: flex;
+	  flex-direction: column;
+	  margin-right: 20px;
+	  margin-left: 5px;
   }

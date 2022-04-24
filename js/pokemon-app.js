@@ -98,7 +98,7 @@ let map = new InteractiveMap({
 				gameState.captured.push(landmark.name)
 				// Add a message
 
-				gameState.messages[0] = `You captured ${landmark.name} for ${landmark.points} points`
+				gameState.messages[0] = `You successfully hunted a egg in ${landmark.name}`
 				landmark.captured = true
 			}
 
@@ -169,18 +169,15 @@ window.onload = (event) => {
 				<div id="main-columns">
 
 					<div class="info">
-						<div class="panel">
-							<user-widget :user="user" />
-						</div>
-						<div class="timer">
-							<p id = "timer"></p>
+						<div class="info-left">
+							<div class="panel">
+								<user-widget :user="user" />
+							</div>
+							<div style="color:white">Press timer to begin</div>
+							<button style="color:black" v-on:click="countDownTimer()">{{ countDown }} seconds left</button>
 						</div>
 					
 						<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
-
-							
-							<div style="color:white">Press timer to begin</div>
-							<button style="color:black" v-on:click="countDownTimer()">{{ countDown }} seconds left</button>
 							<div style="color:white">
 								points: {{gameState.points}}
 							</div>
