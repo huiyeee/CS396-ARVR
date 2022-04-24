@@ -98,7 +98,7 @@ let map = new InteractiveMap({
 				gameState.captured.push(landmark.name)
 				// Add a message
 
-				gameState.messages.[0] = `You captured ${landmark.name} for ${landmark.points} points`
+				gameState.messages[0] = `You captured ${landmark.name} for ${landmark.points} points`
 				landmark.captured = true
 			}
 
