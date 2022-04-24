@@ -270,3 +270,8 @@ header {
   .logo {
 	 margin: 50px 10%;
   }
+
+  .info {
+	  display: flex;
+	  flex-direction: row;
+  }

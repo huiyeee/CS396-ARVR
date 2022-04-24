@@ -168,30 +168,31 @@ window.onload = (event) => {
 		</div>
 				<div id="main-columns">
 
-				<div class="panel">
-					<user-widget :user="user" />
-				</div>
-				<div class="timer">
-					<p id = "timer"></p>
-
-				</div>
+					<div class="info">
+						<div class="panel">
+							<user-widget :user="user" />
+						</div>
+						<div class="timer">
+							<p id = "timer"></p>
+						</div>
 					
-					<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
+						<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
 
-						
-						<div style="color:white">Press timer to begin</div>
-						<button style="color:black" v-on:click="countDownTimer()">{{ countDown }} seconds left</button>
-						<div style="color:white">
-							points: {{gameState.points}}
-						</div>
-						<div style="color:white">
-							captured: {{gameState.captured}}
-						</div>
-						<div style="color:white">
-							Current find: {{gameState.messages}}
-						</div>
+							
+							<div style="color:white">Press timer to begin</div>
+							<button style="color:black" v-on:click="countDownTimer()">{{ countDown }} seconds left</button>
+							<div style="color:white">
+								points: {{gameState.points}}
+							</div>
+							<div style="color:white">
+								captured: {{gameState.captured}}
+							</div>
+							<div style="color:white">
+								Current find: {{gameState.messages}}
+							</div>
 
-						
+							
+						</div>
 					</div>
 
 					<div class="main-column" style="overflow:hidden;width:${MAP_SIZE}px;height:${MAP_SIZE}px">
