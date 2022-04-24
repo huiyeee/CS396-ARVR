@@ -163,8 +163,10 @@ window.onload = (event) => {
 					<user-widget :user="user" />
 				</div>
 					<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
-						(TODO, add your own gamestate)
-						{{gameState}}
+						<span style="color:white">
+							(TODO, add your own gamestate)
+							{{gameState}}
+						<span>
 						
 					</div>
 
