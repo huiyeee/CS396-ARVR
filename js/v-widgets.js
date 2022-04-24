@@ -2,6 +2,7 @@
 
 const userWidget = {
 	template: `<div class="panel">
+		<span>Hunter</span>
 		<table>
 			<tr>
 				<td>uid</td>

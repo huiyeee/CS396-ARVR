@@ -11,7 +11,6 @@ const UPDATE_RATE = 100
  If its vertical, the columns can become sections in one column
  */
 
-
 let landmarkCount = 0
 
 let gameState = {
@@ -140,6 +139,12 @@ let map = new InteractiveMap({
 	
 })
 
+let user = new User(
+	{
+		uid: 0000,
+		displayName: "FakePlayer"
+	}
+)
 
 
 window.onload = (event) => {
@@ -154,6 +159,9 @@ window.onload = (event) => {
 		</div>
 				<div id="main-columns">
 
+				<div class="panel">
+					<user-widget :user="user" />
+				</div>
 					<div class="main-column" style="flex:1;overflow:scroll;max-height:200px">
 						(TODO, add your own gamestate)
 						{{gameState}}
@@ -171,7 +179,7 @@ window.onload = (event) => {
 
 		data() {
 			return {
-			
+				user: user,
 				map: map,
 				gameState: gameState
 			}
@@ -179,8 +187,7 @@ window.onload = (event) => {
 
 		// Get all of the intarsia components, plus various others
 		components: Object.assign({
-			// "user-widget": userWidget,
-			// "room-widget": roomWidget,
+			"user-widget": userWidget,
 			"location-widget": locationWidget,
 		}),
 
