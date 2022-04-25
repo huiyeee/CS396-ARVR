@@ -1,5 +1,6 @@
 const MAP_SIZE = 500
 const NU_CENTER = ol.proj.fromLonLat([-87.6753, 42.056])
+const count = 10
 
 // downtown center, uncomment to use downtown instead, or make your own
 // const NU_CENTER = ol.proj.fromLonLat([-87.6813, 42.049])
@@ -44,7 +45,7 @@ let map = new InteractiveMap({
 		// You can also use this to create trails or clusters for the user to find
 
 		// Automatically generated 15 random landmarks in NU
-		count = 10
+		// count = 10
 		for (var i = 0; i < count; i++) {
 			// make a polar offset (radius, theta) 
 			// from the map's center (units are *approximately* meters)
@@ -89,17 +90,22 @@ let map = new InteractiveMap({
 
 			// Add points to my gamestate
 			// gameState.points += landmark.points
-			gameState.points += 1
+			// gameState.points += 1
 
 			
 
 			// Have we captured this?
 			if (!gameState.captured.includes(landmark.name)) {
 				gameState.captured.push(landmark.name)
+				gameState.points += 1
 				// Add a message
 
 				gameState.messages[0] = `You successfully hunted a egg in ${landmark.name}`
 				landmark.captured = true
+			}
+
+			if (gameState.points >= count) {
+				gameState.messages[0] = `Congrats! You have captured all the eggs! 😅`
 			}
 
 		}
